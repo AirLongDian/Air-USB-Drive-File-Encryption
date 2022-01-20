@@ -4,7 +4,8 @@ An open source and free USB drive file encryption tool
 
 
  <Air-USB-Drive-File-Encryption is an open source and free USB drive
- file encryption tool developed in C++.>  
+ file encryption tool developed in C++.>
+ 
  Copyright (C) <2022> <Airlongdian>
 
  This program is free software: you can redistribute it and/or modify
