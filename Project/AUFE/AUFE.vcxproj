@@ -15,8 +15,7 @@
     <Keyword>QtVS_v304</Keyword>
     <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">10.0.19041.0</WindowsTargetPlatformVersion>
     <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">10.0.19041.0</WindowsTargetPlatformVersion>
-    <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')"
-      >$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+    <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
@@ -41,11 +40,8 @@
     <QtModules>core;gui;widgets</QtModules>
     <QtBuildConfig>release</QtBuildConfig>
   </PropertyGroup>
-  <Target Name="QtMsBuildNotFound"
-    BeforeTargets="CustomBuild;ClCompile"
-    Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
-    <Message Importance="High"
-      Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
+    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
   </Target>
   <ImportGroup Label="ExtensionSettings" />
   <ImportGroup Label="Shared" />
@@ -59,9 +55,19 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <IncludePath>F:\VS-Studio\C++\AUFE-software\Air-USB-Drive-File-Encryption\Project\AUFE\LIBRARY\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
   </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>F:\VS-Studio\C++\AUFE-software\Air-USB-Drive-File-Encryption\Project\AUFE\LIBRARY\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>F:\VS-Studio\C++\AUFE-software\Air-USB-Drive-File-Encryption\Project\AUFE\LIBRARY\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>bit7z64.lib;bit7z64_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
     <ClCompile>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
@@ -89,12 +95,36 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <QtRcc Include="AUFE.qrc"/>
-    <QtUic Include="AUFE.ui"/>
-    <QtMoc Include="AUFE.h"/>
-    <ClCompile Include="AUFE.cpp"/>
-    <ClCompile Include="main.cpp"/>
-
+    <ClCompile Include="ERRORDialog.cpp" />
+    <ClCompile Include="Explore.cpp" />
+    <ClCompile Include="File.cpp" />
+    <ClCompile Include="FileList.cpp" />
+    <ClCompile Include="Login.cpp" />
+    <ClCompile Include="Registration.cpp" />
+    <ClCompile Include="SetPassword.cpp" />
+    <ClCompile Include="Tools.cpp" />
+    <ClCompile Include="User.cpp" />
+    <QtRcc Include="AUFE.qrc" />
+    <QtUic Include="AUFE.ui" />
+    <QtMoc Include="AUFE.h" />
+    <ClCompile Include="AUFE.cpp" />
+    <ClCompile Include="main.cpp" />
+    <QtUic Include="ERRORDialog.ui" />
+    <QtUic Include="Explore.ui" />
+    <QtUic Include="Login.ui" />
+    <QtUic Include="Registration.ui" />
+    <QtUic Include="SetPassword.ui" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="Explore.h" />
+    <QtMoc Include="SetPassword.h" />
+    <QtMoc Include="ERRORDialog.h" />
+    <ClInclude Include="File.h" />
+    <ClInclude Include="FileList.h" />
+    <QtMoc Include="Login.h" />
+    <QtMoc Include="Registration.h" />
+    <ClInclude Include="Tools.h" />
+    <ClInclude Include="User.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

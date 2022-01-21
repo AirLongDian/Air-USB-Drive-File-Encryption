@@ -1,4 +1,5 @@
 <RCC>
-    <qresource prefix="AUFE">
-    </qresource>
+  <qresource prefix="AUFE">
+    <file>image/load.png</file>
+  </qresource>
 </RCC>

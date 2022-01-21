@@ -1,28 +1,41 @@
-<UI version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>AUFEClass</class>
- <widget class="QMainWindow" name="AUFEClass" >
-  <property name="objectName" >
-   <string notr="true">AUFEClass</string>
-  </property>
-  <property name="geometry" >
+ <widget class="QMainWindow" name="AUFEClass">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>400</height>
+    <width>640</width>
+    <height>360</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="minimumSize">
+   <size>
+    <width>640</width>
+    <height>360</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>640</width>
+    <height>360</height>
+   </size>
+  </property>
+  <property name="windowTitle">
    <string>AUFE</string>
-  </property>  <widget class="QMenuBar" name="menuBar" />
-  <widget class="QToolBar" name="mainToolBar" />
-  <widget class="QWidget" name="centralWidget" />
-  <widget class="QStatusBar" name="statusBar" />
+  </property>
+  <property name="styleSheet">
+   <string notr="true">border-image: url(:/AUFE/image/load.png);
+
+
+</string>
+  </property>
+  <widget class="QWidget" name="centralWidget"/>
  </widget>
- <layoutDefault spacing="6" margin="11" />
- <pixmapfunction></pixmapfunction>
+ <layoutdefault spacing="6" margin="11"/>
  <resources>
-   <include location="AUFE.qrc"/>
+  <include location="AUFE.qrc"/>
  </resources>
  <connections/>
-</UI>
+</ui>
